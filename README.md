@@ -38,12 +38,11 @@ Dataset yang digunakan adalah [Mobile Price Classification](https://www.kaggle.c
 ### Ringkasan Dataset
 
 -   **Jumlah data:** 2000 baris dengan 21 kolom.
+-   **Atribut target:** `price_range` - kategori harga perangkat (0: Low, 1: Medium, 2: High, 3: Very High)
+-   **Missing value:** 0 - tidak terdapat missing value.
+-   **Duplikasi data:** 0 - tidak terdapat duplikasi data.
     
--   **Informasi utama:** Dataset berisi fitur-fitur seperti kapasitas baterai, kecepatan prosesor, jumlah RAM, resolusi layar, dan kategori harga.
-    
-### Atribut Dataset
-
-Berikut adalah tabel yang menjelaskan atribut pada dataset beserta deskripsinya:
+### Atribut Lengkap Dataset
 
 | Nama Atribut     | Tipe Data  | Deskripsi                                                                 |
 |------------------|------------|---------------------------------------------------------------------------|
@@ -102,12 +101,37 @@ Tahapan yang dilakukan:
 
 1. **Logistic Regression**  
    Logistic Regression adalah algoritma machine learning yang digunakan untuk memprediksi probabilitas kejadian dalam sebuah data yang bersifat kategorikal. Model ini bekerja dengan memodelkan hubungan antara satu atau lebih fitur independen dan variabel dependen melalui fungsi logistik (sigmoid). Logistic Regression sangat cocok digunakan sebagai baseline karena kesederhanaannya dan kemampuannya untuk memberikan hasil yang cukup baik pada data yang memiliki distribusi linier.
+   **Parameter yang digunakan:**
+   - **solver**: `'lbfgs'`  
+      Solver yang digunakan untuk optimasi. `'lbfgs'` adalah algoritma optimasi berbasis gradien yang cocok untuk dataset kecil hingga sedang.  
+   - **penalty**: `'l2'`  
+      Jenis regularisasi yang digunakan untuk mencegah overfitting. `'l2'` mengacu pada regularisasi Ridge.  
+   - **C**: `1.0`  
+      Parameter regularisasi, di mana nilai yang lebih kecil menunjukkan regularisasi yang lebih kuat.  
 
-2. **Decision Tree**  
+
+1. **Decision Tree**  
    Decision Tree adalah algoritma berbasis pohon keputusan yang membagi data menjadi subset berdasarkan fitur tertentu. Setiap percabangan pada pohon merepresentasikan kondisi pada fitur, dan setiap daun merepresentasikan hasil prediksi. Algoritma ini mampu menangkap hubungan non-linear dalam data, namun rentan terhadap overfitting jika pohonnya terlalu dalam.
+   **Parameter yang digunakan:**
+   - **criterion**: `'gini'`  
+      Fungsi yang digunakan untuk mengukur kualitas split. `'gini'` mengacu pada indeks Gini.  
+   - **splitter**: `'best'`  
+      Strategi untuk memilih split pada setiap node. `'best'` berarti memilih split terbaik.  
+   - **max_depth**: `None`  
+      Kedalaman maksimum pohon. Default `None` berarti pohon akan tumbuh hingga semua daun murni.  
 
-3. **Random Forest**  
+
+1. **Random Forest**  
    Random Forest adalah algoritma ensemble yang menggabungkan prediksi dari banyak pohon keputusan untuk meningkatkan akurasi dan mengurangi overfitting. Algoritma ini bekerja dengan membangun beberapa pohon keputusan secara acak dan menggabungkan prediksinya melalui proses voting. Teknik ini sangat efektif untuk menangani data dengan banyak fitur dan hubungan non-linear.
+   **Parameter yang digunakan:**
+   - **n_estimators**: `100`  
+      Jumlah pohon dalam ensemble.  
+   - **criterion**: `'gini'`  
+      Sama seperti Decision Tree, fungsi ini digunakan untuk mengukur kualitas split.  
+   - **max_features**: `'sqrt'`  
+      Jumlah fitur yang dipertimbangkan untuk mencari split terbaik. `'sqrt'` berarti akar kuadrat dari jumlah total fitur.  
+   - **bootstrap**: `True`  
+      Menentukan apakah sampel bootstrap digunakan saat membangun pohon.  
 
 ### Proses dan Tahapan
 
