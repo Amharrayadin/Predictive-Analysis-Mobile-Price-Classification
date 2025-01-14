@@ -1,4 +1,4 @@
-# Laporan Proyek Machine Learning - Muhamad Amhar Rayadin
+# Predictive Analysis Mobile Price Classification
 
 ## Domain Proyek
 Dalam dunia teknologi yang terus berkembang, produsen perangkat mobile menghadapi tantangan besar dalam menentukan segmen harga yang sesuai untuk produk mereka. Kesalahan dalam penetapan harga dapat menyebabkan hilangnya daya saing di pasar yang semakin kompetitif. Di sisi lain, konsumen sering kali kesulitan memilih perangkat yang sesuai dengan kebutuhan dan anggaran mereka, mengingat banyaknya variasi spesifikasi dan harga yang tersedia. Masalah ini menciptakan kebutuhan akan solusi berbasis data yang mampu memberikan panduan yang lebih objektif dan efisien.
